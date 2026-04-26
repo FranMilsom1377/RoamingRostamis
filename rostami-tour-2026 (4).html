@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Roaming Rostamis Tour 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --gold:#B8892A;
+  --ink:#1A1612;
+  --muted:#7A6E60;
+  --line:#E5E0D8;
+  --bg:#FDFCFA;
+  --white:#FFFFFF;
+  --spain:#B83A1A;
+  --london:#1C4A8A;
+  --cotswolds:#2D6040;
+  --serif:'Cormorant Garamond',serif;
+  --sans:'DM Sans',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.6;font-size:16px}
+
+/* HERO */
+.hero{position:relative;height:100vh;min-height:600px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;background:#1a1008}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,6,2,0.82) 0%,rgba(10,6,2,0.18) 55%,transparent 100%)}
+.hero-content{position:relative;z-index:2;padding:3.5rem 4rem;max-width:860px}
+.hero-eyebrow{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:1rem}
+.hero-title{font-family:var(--serif);font-size:clamp(3.5rem,7vw,6rem);font-weight:600;line-height:1.05;color:#fff;margin-bottom:1.25rem}
+.hero-title em{font-style:italic;font-weight:400}
+.hero-meta{display:flex;flex-wrap:wrap;gap:1.5rem;margin-bottom:2rem}
+.hm{font-size:13px;color:rgba(255,255,255,0.72)}
+.hero-pills{display:flex;flex-wrap:wrap;gap:.5rem}
+.hp{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.18);color:rgba(255,255,255,0.85);font-size:11px;letter-spacing:.06em;padding:.35rem .85rem;backdrop-filter:blur(6px)}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px solid var(--line);display:flex;align-items:center;overflow-x:auto;padding:0 3rem;height:52px}
+nav::-webkit-scrollbar{display:none}
+.nav-brand{font-family:var(--serif);font-size:15px;font-weight:600;color:var(--ink);white-space:nowrap;margin-right:2.5rem;padding-right:2.5rem;border-right:1px solid var(--line);flex-shrink:0}
+.nav-links{display:flex}
+nav a.nl{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:0 1rem;height:52px;display:flex;align-items:center;border-bottom:2px solid transparent;white-space:nowrap;transition:color .2s,border-color .2s}
+nav a.nl:hover{color:var(--ink);border-bottom-color:var(--gold)}
+
+/* LOGISTICS */
+.logistics{background:var(--white);border-bottom:1px solid var(--line);padding:2.5rem 4rem}
+.log-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:2rem}
+.lg{display:flex;flex-direction:column}
+.lg-icon{font-size:20px;margin-bottom:.3rem}
+.lg-lbl{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.25rem;font-weight:500}
+.lg-val{font-size:13.5px;font-weight:500;color:var(--ink);line-height:1.35}
+.lg-sub{font-size:12px;color:var(--muted);margin-top:.15rem}
+
+/* DAY HERO */
+.day-section{padding:0}
+.day-hero{position:relative;height:56vh;min-height:380px;overflow:hidden;background:#1a1008}
+.day-hero img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+.day-hero:hover img{transform:scale(1.025)}
+.day-hero-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,5,2,0.70) 0%,rgba(8,5,2,0.04) 50%,transparent 100%)}
+.day-hero-label{position:absolute;bottom:0;left:0;right:0;padding:2.5rem 4rem;z-index:2}
+.day-num-label{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,0.58);margin-bottom:.4rem}
+.day-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:600;color:#fff;line-height:1.1}
+.day-title em{font-style:italic;font-weight:400}
+.day-sub{font-size:13px;color:rgba(255,255,255,0.62);margin-top:.35rem}
+
+/* PHOTO STRIP */
+.photo-strip{display:grid;gap:3px}
+.photo-strip.n2{grid-template-columns:1fr 1fr}
+.photo-strip.n3{grid-template-columns:1fr 1fr 1fr}
+.photo-strip figure{position:relative;overflow:hidden;height:240px;margin:0;background:#c8b89a}
+.photo-strip figure img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.photo-strip figure:hover img{transform:scale(1.05)}
+.photo-strip figcaption{position:absolute;bottom:0;left:0;right:0;padding:.5rem .85rem;background:linear-gradient(transparent,rgba(0,0,0,0.5));font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#fff}
+
+/* CONTENT */
+.day-content{max-width:740px;margin:0 auto;padding:3.5rem 2rem 4.5rem}
+.leg-flag{display:inline-flex;align-items:center;gap:.65rem;padding:.45rem 1.1rem;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;border-left:3px solid;margin-bottom:2.75rem}
+.day-subhead{font-family:var(--serif);font-size:1.35rem;font-weight:600;color:var(--ink);margin:2.5rem 0 1.5rem;padding-bottom:.55rem;border-bottom:1px solid var(--line)}
+
+/* TIMELINE */
+.timeline{display:flex;flex-direction:column}
+.te{display:grid;grid-template-columns:68px 1fr;position:relative;padding-bottom:2.25rem}
+.te:last-child{padding-bottom:0}
+.te-time{font-size:11.5px;font-weight:500;color:var(--gold);padding-top:.1rem;padding-right:1.25rem;text-align:right;white-space:nowrap}
+.te-right{padding-left:2rem;position:relative}
+.te-right::before{content:'';position:absolute;left:-1px;top:6px;width:9px;height:9px;border-radius:50%;background:var(--gold);border:2.5px solid var(--bg);box-shadow:0 0 0 1.5px var(--gold)}
+.te-right::after{content:'';position:absolute;left:3px;top:17px;bottom:0;width:1px;background:var(--line)}
+.te:last-child .te-right::after{display:none}
+.te-head{font-family:var(--serif);font-size:1.25rem;font-weight:600;color:var(--ink);margin-bottom:.3rem;line-height:1.2}
+.te-head a{color:inherit;text-decoration:none;border-bottom:1px solid var(--line);transition:border-color .2s}
+.te-head a:hover{border-color:var(--gold)}
+.te-body{font-size:13.5px;color:var(--muted);line-height:1.78;margin-bottom:.4rem}
+.te-body a{color:var(--ink);font-weight:500;border-bottom:1px solid var(--line);text-decoration:none;transition:border-color .2s}
+.te-body a:hover{border-color:var(--gold)}
+.map-link{display:inline-flex;align-items:center;gap:.3rem;font-size:12px;color:var(--gold);text-decoration:none;letter-spacing:.04em;border-bottom:1px solid rgba(184,137,42,0.25);margin-top:.3rem;transition:border-color .2s}
+.map-link:hover{border-color:var(--gold)}
+.map-link::before{content:'↗';font-size:10px}
+
+/* ACCOM */
+.accom{background:var(--white);border:1px solid var(--line);overflow:hidden;margin-top:3rem}
+.accom-img{height:210px;overflow:hidden;background:#c8b89a}
+.accom-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.accom:hover .accom-img img{transform:scale(1.03)}
+.accom-body{padding:1.75rem 1.85rem}
+.accom-tag{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.55rem}
+.accom-name{font-family:var(--serif);font-size:1.45rem;font-weight:600;color:var(--ink);margin-bottom:.25rem}
+.accom-addr{font-size:13px;color:var(--muted);margin-bottom:1.15rem;line-height:1.5}
+.accom-meta{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:1.15rem}
+.am{display:flex;flex-direction:column;gap:1px}
+.am-l{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.am-v{font-size:13px;font-weight:500;color:var(--ink)}
+.accom-links a{font-size:12px;color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(184,137,42,0.3);padding-bottom:1px}
+
+.divider{height:1px;background:var(--line);margin:0 4rem}
+
+/* FOOTER */
+.footer{background:var(--ink);padding:4rem;text-align:center}
+.footer-script{font-family:var(--serif);font-size:2.25rem;font-style:italic;color:rgba(255,255,255,0.85);display:block;margin-bottom:.6rem}
+.footer p{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,0.35)}
+.footer span{color:var(--gold)}
+
+@media(max-width:740px){
+  .hero-content,.day-hero-label,.logistics{padding-left:1.5rem;padding-right:1.5rem}
+  .hero-title{font-size:2.8rem}
+  nav{padding:0 1.5rem}
+  .day-content{padding:2.5rem 1.5rem 3.5rem}
+  .photo-strip.n3{grid-template-columns:1fr 1fr}
+  .divider{margin:0 1.5rem}
+  .log-grid{grid-template-columns:1fr 1fr}
+  .footer{padding:3rem 1.5rem}
+}
+</style>
+</head>
+<body>
+
+<!-- Wikimedia Commons image helper — all images are named landmark files -->
+<!-- Format: https://upload.wikimedia.org/wikipedia/commons/thumb/X/XX/Filename.jpg/1200px-Filename.jpg -->
+
+<!-- ══ HERO — Marbella coast / Puerto Banus ══ -->
+<section class="hero">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Puerto_Ban%C3%BAs%2C_Marbella%2C_Spain.jpg/1280px-Puerto_Ban%C3%BAs%2C_Marbella%2C_Spain.jpg" alt="Puerto Banús, Marbella">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">2 – 24 May 2026</p>
+    <h1 class="hero-title">The <em>Roaming</em><br>Rostamis Tour</h1>
+    <div class="hero-meta">
+      <span class="hm">✈ London · Marbella · Sevilla · Cotswolds · Hampstead</span>
+      <span class="hm">&nbsp;&nbsp;📅 23 Days &nbsp;&nbsp;👥 Fran · Rauikau · Anna · Rohinton</span>
+    </div>
+    <div class="hero-pills">
+      <span class="hp">✈ British Airways · X8E23T</span>
+      <span class="hp">🇳🇿 Auckland → London</span>
+      <span class="hp">🇪🇸 Spain</span>
+      <span class="hp">🇬🇧 UK</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <span class="nav-brand">Rostamis 2026</span>
+  <div class="nav-links">
+    <a class="nl" href="#leg1">London Arrival</a>
+    <a class="nl" href="#leg2">Marbella</a>
+    <a class="nl" href="#leg3">Sevilla</a>
+    <a class="nl" href="#leg4">Marbella II</a>
+    <a class="nl" href="#leg5">London Home</a>
+    <a class="nl" href="#leg6">Cotswolds</a>
+    <a class="nl" href="#leg7">Hampstead</a>
+    <a class="nl" href="#leg8">Final Days</a>
+  </div>
+</nav>
+
+<!-- ══ LOGISTICS ══ -->
+<div class="logistics">
+  <div class="log-grid">
+    <div class="lg"><span class="lg-icon">✈</span><span class="lg-lbl">Arrival flight</span><span class="lg-val">BA4550 + BA0032</span><span class="lg-sub">via Hong Kong · 6:15am Sat 2 May</span></div>
+    <div class="lg"><span class="lg-icon">✈</span><span class="lg-lbl">Spain out</span><span class="lg-val">BA2642</span><span class="lg-sub">Gatwick 09:25 → Málaga 13:25</span></div>
+    <div class="lg"><span class="lg-icon">✈</span><span class="lg-lbl">Spain home</span><span class="lg-val">BA2647</span><span class="lg-sub">Málaga 20:35 → Gatwick</span></div>
+    <div class="lg"><span class="lg-icon">🚗</span><span class="lg-lbl">Spain transport</span><span class="lg-val">Hire car</span><span class="lg-sub">Collect at Málaga airport</span></div>
+    <div class="lg"><span class="lg-icon">🏡</span><span class="lg-lbl">Marbella</span><span class="lg-val">13 Bajo A, La Maestranza</span><span class="lg-sub">Calle Las Ventas, 29660</span></div>
+    <div class="lg"><span class="lg-icon">🏨</span><span class="lg-lbl">Sevilla</span><span class="lg-val">ISG Apartments</span><span class="lg-sub">Calle Conde Negro 10</span></div>
+    <div class="lg"><span class="lg-icon">🏡</span><span class="lg-lbl">Hampstead</span><span class="lg-val">14b Downshire Hill, NW3</span><span class="lg-sub">Fri 15 – Thu 21 May</span></div>
+    <div class="lg"><span class="lg-icon">✈</span><span class="lg-lbl">Departure</span><span class="lg-val">BA0015 + BA7480</span><span class="lg-sub">Sun 24 May · 22:00 · via Sydney</span></div>
+  </div>
+</div>
+
+
+<!-- ════════ LEG 1 ════════ -->
+<section class="day-section" id="leg1">
+  <div class="day-hero">
+    <!-- Heathrow Terminal 5 building -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Heathrow_T5.jpg/1280px-Heathrow_T5.jpg" alt="Heathrow Terminal 5">
+    <div class="day-hero-ov"></div>
+    <div class="day-hero-label">
+      <p class="day-num-label">Leg 1 · Day 1 · Saturday 2 May 2026</p>
+      <h2 class="day-title">London <em>Arrival</em></h2>
+      <p class="day-sub">Auckland → Hong Kong → Heathrow T5 · Herne Hill</p>
+    </div>
+  </div>
+  <div class="photo-strip n2">
+    <figure>
+      <!-- Brixton / Herne Hill area London -->
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Brockwell_Park_lido.jpg/1280px-Brockwell_Park_lido.jpg" alt="Brockwell Park, Herne Hill">
+      <figcaption>Brockwell Park, Herne Hill</figcaption>
+    </figure>
+    <figure>
+      <!-- London street scene -->
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Herne_Hill_station.jpg/1280px-Herne_Hill_station.jpg" alt="Herne Hill, London">
+      <figcaption>Herne Hill</figcaption>
+    </figure>
+  </div>
+  <div class="day-content">
+    <div class="leg-flag" style="border-color:var(--london);background:#EFF4FB;color:var(--london)">🇬🇧 &nbsp;Leg 1 — London Arrival</div>
+    <div class="timeline">
+      <div class="te"><div class="te-time">6:15am</div><div class="te-right"><div class="te-head">Arrive Heathrow Terminal 5</div><p class="te-body">Flights BA4550 & BA0032 from Auckland via Hong Kong. Long-haul from NZ — keep it easy today. Collect bags and head straight to Herne Hill.</p></div></div>
+      <div class="te"><div class="te-time">Afternoon</div><div class="te-right"><div class="te-head"><a href="https://maps.google.com/?q=Herne+Hill+London+SE24" target="_blank">Herne Hill</a></div><p class="te-body">Settle in at Flat 8 Bishop Court, 10 Dudley Mews, SW2 2YE. Rest up and a gentle local walk if energy allows.</p><a class="map-link" href="https://maps.google.com/?q=Herne+Hill+London+SE24" target="_blank">Open in Maps</a></div></div>
+      <div class="te"><div class="te-time">Evening</div><div class="te-right"><div class="te-head">Welcome dinner at home</div><p class="te-body">Home-cooked welcome meal. Early night — you've earned it after 24+ hours of travel.</p></div></div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+
+<!-- ════════ LEG 2 ════════ -->
+<section class="day-section" id="leg2">
+  <div class="day-hero">
+    <!-- Marbella Old Town -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Marbella_old_town.jpg/1280px-Marbella_old_town.jpg" alt="Marbella Old Town">
+    <div class="day-hero-ov"></div>
+    <div class="day-hero-label">
+      <p class="day-num-label">Leg 2 · Days 2–3 · Sun 3 – Mon 4 May 2026</p>
+      <h2 class="day-title"><em>Marbella</em>, Costa del Sol</h2>
+      <p class="day-sub">Gatwick → Málaga · La Maestranza, Nueva Andalucía · 2 nights</p>
+    </div>
+  </div>
+  <div class="photo-strip n3">
+    <figure>
+      <!-- Puerto Banus marina with yachts -->
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Puerto_Ban%C3%BAs%2C_Marbella%2C_Spain.jpg/800px-Puerto_Ban%C3%BAs%2C_Marbella%2C_Spain.jpg" alt="Puerto Banús marina">
+      <figcaption>Puerto Banús marina</figcaption>
+    </figure>
+    <figure>
+      <!-- Marbella old town flowers -->
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Marbella-OldTown.jpg/800px-Marbella-OldTown.jpg" alt="Marbella Old Town">
+      <figcaption>Marbella Old Town</figcaption>
+    </figure>
+    <figure>
+      <!-- Costa del Sol / Malaga beach -->
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Malagueta_beach%2C_M%C3%A1laga%2C_Spain.jpg/800px-Malagueta_beach%2C_M%C3%A1laga%2C_Spain.jpg" alt="Costa del Sol beach">
+      <figcaption>Costa del Sol</figcaption>
+    </figure>
+  </div>
+  <div class="day-content">
+    <div class="leg-flag" style="border-color:var(--spain);background:#FBF1EE;color:var(--spain)">🇪🇸 &nbsp;Leg 2 — Marbella</div>
+    <p style="font-family:var(--serif);font-size:1.05rem;color:var(--muted);font-style:italic;line-height:1.75;margin-bottom:2.5rem">"Relaxed days with lovely late lunches by the sea — Marbella at its most unhurried."</p>
+
+    <div class="day-subhead">Day 2 · Sun 3 May — Arrival</div>
+    <div class="timeline">
+      <div class="te"><div class="te-time">09:25</div><div class="te-right"><div class="te-head">Depart Gatwick — BA2642</div><p class="te-body">Direct flight to Málaga, arriving 13:25. Collect hire car and drive to La Maestranza in Nueva Andalucía (~45 min).</p></div></div>
+      <div class="te"><div class="te-time">16:30</div><div class="te-right"><div class="te-head"><a href="https://maps.google.com/?q=Restaurante+Alabardero+Marbella" target="_blank">Late lunch at Alabardero</a></div><p class="te-body">Settle in, then head for a late afternoon lunch. Nice Paella and the first taste of Andalusia.</p><a class="map-link" href="https://maps.google.com/?q=Restaurante+Alabardero+Marbella" target="_blank">Open in Maps</a></div></div>
+    </div>
+
+    <div class="day-subhead">Day 3 · Mon 4 May — Beach day</div>
+    <div class="timeline">
+      <div class="te"><div class="te-time">09:00</div><div class="te-right"><div class="te-head">Mercadona shop & breakfast at home</div><p class="te-body">Big supermarket run to stock up. Leisurely breakfast at the apartment.</p></div></div>
+      <div class="te"><div class="te-time">14:30</div><div class="te-right"><div class="te-head"><a href="https://maps.google.com/?q=Trocadero+Arena+Marbella" target="_blank">Trocadero Arena</a></div><p class="te-body">Late lunch at the legendary Trocadero Arena, right on the beach. Follow with a long beach walk.</p><a class="map-link" href="https://maps.google.com/?q=Trocadero+Arena+Marbella" target="_blank">Open in Maps</a></div></div>
+      <div class="te"><div class="te-time">Evening</div><div class="te-right"><div class="te-head"><a href="https://maps.google.com/?q=Puerto+Banus+Marbella" target="_blank">Walk through Puerto Banús</a></div><p class="te-body">Stroll along the marina. Dinner at home. Prepare snacks for the Sevilla road trip tomorrow.</p><a class="map-link" href="https://maps.google.com/?q=Puerto+Banus+Marbella" target="_blank">Open in Maps</a></div></div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+
+<!-- ════════ LEG 3 ════════ -->
+<section class="day-section" id="leg3">
+  <div class="day-hero">
+    <!-- Plaza de España Seville — famous panorama -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Sevilla_Plaza_de_Espa%C3%B1a_panorama.jpg/1280px-Sevilla_Plaza_de_Espa%C3%B1a_panorama.jpg" alt="Plaza de España, Seville">
+    <div class="day-hero-ov"></div>
+    <div class="day-hero-label">
+      <p class="day-num-label">Leg 3 · Days 4–6 · Tue 5 – Thu 7 May 2026</p>
+      <h2 class="day-title"><em>Sevilla</em>, Andalucía</h2>
+      <p class="day-sub">Drive via Tarifa & Vejer de la Frontera · ISG Apartments · 3 nights</p>
+    </div>
+  </div>
+  <div class="photo-strip n3">
+    <figure>
+      <!-- Alcazar de Sevilla -->
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Real_Alc%C3%A1zar_of_Seville_-_Patio_de_las_Doncellas_-_20110918.jpg/800px-Real_Alc%C3%A1zar_of_Seville_-_Patio_de_las_Doncellas_-_20110918.jpg" alt="Real Alcázar, Seville">
+      <figcaption>Real Alcázar</figcaption>
+    </figure>
+    <figure>
+      <!-- Seville Giralda tower / Cathedral -->
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Seville_Cathedral_from_Giralda.jpg/800px-Seville_Cathedral_from_Giralda.jpg" alt="Seville Cathedral and Giralda">
+      <figcaption>La Giralda, Sevilla</figcaption>
+    </figure>
+    <figure>
+      <!-- Vejer de la Frontera white village -->
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Vejer_de_la_Frontera_%28province_of_C%C3%A1diz%29.jpg/800px-Vejer_de_la_Frontera_%28province_of_C%C3%A1diz%29.jpg" alt="Vejer de la Frontera">
+      <figcaption>Vejer de la Frontera</figcaption>
+    </figure>
+  </div>
+  <div class="day-content">
+    <div class="leg-flag" style="border-color:#9A8000;background:#FAF7E5;color:#7A6400">🇪🇸 &nbsp;Leg 3 — Sevilla</div>
+    <p style="font-family:var(--serif);font-size:1.05rem;color:var(--muted);font-style:italic;line-height:1.75;margin-bottom:2.5rem">"The rhythm of Flamenco, the grandeur of the Alcázar, lunch in a candlelit cave — Sevilla at its finest."</p>
+
+    <div class="day-subhead">Day 4 · Tue 5 May — Drive to Sevilla</div>
+    <div class="timeline">
+      <div class="te"><div class="te-time">09:00</div><div class="te-right"><div class="te-head">Depart Marbella — stop at Tarifa</div><p class="te-body">Breakfast at home, hit the road. Stop at <a href="https://maps.google.com/?q=Tarifa+Spain" target="_blank">Tarifa</a> for an hour's walk — the southernmost tip of continental Europe, where Atlantic meets Mediterranean.</p></div></div>
+      <div class="te"><div class="te-time">13:00</div><div class="te-right"><div class="te-head"><a href="https://maps.google.com/?q=El+Jardin+del+Califa+Vejer+de+la+Frontera" target="_blank">El Jardín del Califa, Vejer de la Frontera</a></div><p class="te-body">Lunch in the caves — a legendary cave restaurant serving Moroccan-Andalusian mezze in a candlelit grotto. One of the most extraordinary dining experiences in Spain.</p><a class="map-link" href="https://maps.google.com/?q=El+Jardin+del+Califa+Vejer+de+la+Frontera" target="_blank">Open in Maps</a></div></div>
+      <div class="te"><div class="te-time">Evening</div><div class="te-right"><div class="te-head">Arrive Sevilla · Walk the city</div><p class="te-body">Check into ISG Apartments, Calle Conde Negro 10. Evening walk to soak in the city.</p><a class="map-link" href="https://maps.google.com/?q=Calle+Conde+Negro+Sevilla" target="_blank">Apartment on Maps</a></div></div>
+    </div>
+
+    <div class="day-subhead">Day 5 · Wed 6 May — Full day Sevilla</div>
+    <div class="timeline">
+      <div class="te"><div class="te-time">Morning</div><div class="te-right"><div class="te-head"><a href="https://maps.google.com/?q=Plaza+de+Espana+Sevilla" target="_blank">Plaza de España</a></div><p class="te-body">Walk the extraordinary baroque semicircle — 500 metres of tiled alcoves, canals and bridges. Breakfast at a local tortilla bar.</p><a class="map-link" href="https://maps.google.com/?q=Plaza+de+Espana+Sevilla" target="_blank">Open in Maps</a></div></div>
+      <div class="te"><div class="te-time">Afternoon</div><div class="te-right"><div class="te-head"><a href="https://maps.google.com/?q=Real+Alcazar+Sevilla" target="_blank">Real Alcázar Palace & siesta</a></div><p class="te-body">UNESCO-listed royal palace — 14th-century Mudéjar architecture and extraordinary gardens.</p><a class="map-link" href="https://maps.google.com/?q=Real+Alcazar+Sevilla" target="_blank">Open in Maps</a></div></div>
+      <div class="te"><div class="te-time">Evening</div><div class="te-right"><div class="te-head">Flamenco show & tapas</div><p class="te-body">A proper live Flamenco performance — the heartbeat of Andalusia. Follow with tapas hopping through the Santa Cruz neighbourhood.</p></div></div>
+    </div>
+
+    <div class="day-subhead">Day 6 · Thu 7 May — Ronda & return to Marbella</div>
+    <div class="timeline">
+      <div class="te"><div class="te-time">11:00</div><div class="te-right"><div class="te-head">Leave Sevilla — drive to <a href="https://maps.google.com/?q=Ronda+Malaga" target="_blank">Ronda</a></div><p class="te-body">Leave parking by 11:00. Drive south to one of Spain's most dramatically situated towns, perched above a 120-metre gorge.</p></div></div>
+      <div class="te"><div class="te-time">13:15</div><div class="te-right"><div class="te-head"><a href="https://maps.google.com/?q=Tragata+Ronda" target="_blank">Lunch at Tragata, Ronda</a></div><p class="te-body">Superb modern tapas bar in Ronda's new town. Walk out to the Puente Nuevo for jaw-dropping gorge views.</p><a class="map-link" href="https://maps.google.com/?q=Tragata+Ronda" target="_blank">Open in Maps</a></div></div>
+      <div class="te"><div class="te-time">Evening</div><div class="te-right"><div class="te-head">Return to Marbella</div><p class="te-body">Back to La Maestranza. Relax at home, snacks and an easy evening.</p></div></div>
+    </div>
+
+    <div class="accom">
+      <div class="accom-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Sevilla_Plaza_de_Espa%C3%B1a_panorama.jpg/1280px-Sevilla_Plaza_de_Espa%C3%B1a_panorama.jpg" alt="Seville">
+      </div>
+      <div class="accom-body">
+        <div class="accom-tag">Nights 3–5 · Sevilla Centro</div>
+        <div class="accom-name">ISG Apartments</div>
+        <div class="accom-addr">Calle Conde Negro 10, Sevilla, Andalucía, Spain</div>
+        <div class="accom-meta">
+          <div class="am"><span class="am-l">Location</span><span class="am-v">Central Sevilla</span></div>
+          <div class="am"><span class="am-l">Nights</span><span class="am-v">Tue 5 – Thu 7 May</span></div>
+        </div>
+        <div class="accom-links"><a href="https://maps.google.com/?q=Calle+Conde+Negro+Sevilla" target="_blank">View on Map →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+
+<!-- ════════ LEG 4 ════════ -->
+<section class="day-section" id="leg4">
+  <div class="day-hero">
+    <!-- Ronda Puente Nuevo — iconic view of the gorge -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Puente_Nuevo%2C_Ronda%2C_Spain.jpg/1280px-Puente_Nuevo%2C_Ronda%2C_Spain.jpg" alt="Puente Nuevo, Ronda">
+    <div class="day-hero-ov"></div>
+    <div class="day-hero-label">
+      <p class="day-num-label">Leg 4 · Days 7–8 · Fri 8 – Sat 9 May 2026</p>
+      <h2 class="day-title"><em>Marbella</em> & Departure</h2>
+      <p class="day-sub">Old Town ferry · Taberna Gaspar · Fly Málaga → Gatwick 20:35</p>
+    </div>
+  </div>
+  <div class="photo-strip n2">
+    <figure>
+      <!-- Marbella old town orange tree square -->
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Marbella-OldTown.jpg/800px-Marbella-OldTown.jpg" alt="Marbella Old Town">
+      <figcaption>Marbella Old Town</figcaption>
+    </figure>
+    <figure>
+      <!-- Ronda cliff houses El Tajo gorge -->
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Ronda_cliffs.jpg/800px-Ronda_cliffs.jpg" alt="Ronda cliffs and gorge">
+      <figcaption>Ronda · El Tajo Gorge</figcaption>
+    </figure>
+  </div>
+  <div class="day-content">
+    <div class="leg-flag" style="border-color:var(--spain);background:#FBF1EE;color:var(--spain)">🇪🇸 &nbsp;Leg 4 — Marbella</div>
+
+    <div class="day-subhead">Day 7 · Fri 8 May</div>
+    <div class="timeline">
+      <div class="te"><div class="te-time">Morning</div><div class="te-right"><div class="te-head">Breakfast at home · Seaside walk</div><p class="te-body">Gentle morning walk along the seafront near <a href="https://maps.google.com/?q=Puente+Romano+Marbella" target="_blank">Puente Romana</a>. Relax by the pool, lunch at home.</p></div></div>
+      <div class="te"><div class="te-time">17:00</div><div class="te-right"><div class="te-head">Ferry — Puerto Banús to Marbella Old Town</div><p class="te-body">Fly Blue ferry from Puerto Banús to the Old Town — a lovely way to arrive for the evening.</p><a class="map-link" href="https://maps.google.com/?q=Puerto+Banus+Marbella" target="_blank">Puerto Banús on Maps</a></div></div>
+      <div class="te"><div class="te-time">20:30</div><div class="te-right"><div class="te-head"><a href="https://maps.google.com/?q=Taberna+Gaspar+Marbella" target="_blank">Dinner at Taberna Gaspar</a></div><p class="te-body">Dinner in the Old Town, then tapas hopping through the whitewashed streets. A perfect last night in Marbella.</p><a class="map-link" href="https://maps.google.com/?q=Taberna+Gaspar+Marbella" target="_blank">Open in Maps</a></div></div>
+    </div>
+
+    <div class="day-subhead">Day 8 · Sat 9 May — Departure</div>
+    <div class="timeline">
+      <div class="te"><div class="te-time">Morning</div><div class="te-right"><div class="te-head">Marbella markets · shopping</div><p class="te-body">Last breakfast at home. Walk through the Saturday markets. Optional: Magna Café, El Ancla, Puente Romana.</p></div></div>
+      <div class="te"><div class="te-time">20:35</div><div class="te-right"><div class="te-head">Fly Málaga → Gatwick South Terminal</div><p class="te-body">BA2647 departs Málaga 20:35. ¡Hasta luego, España!</p></div></div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+
+<!-- ════════ LEG 5 ════════ -->
+<section class="day-section" id="leg5">
+  <div class="day-hero">
+    <!-- Victoria & Albert Museum London -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Victoria_and_Albert_Museum_Entrance%2C_London_-_Nov_2012.jpg/1280px-Victoria_and_Albert_Museum_Entrance%2C_London_-_Nov_2012.jpg" alt="Victoria and Albert Museum, London">
+    <div class="day-hero-ov"></div>
+    <div class="day-hero-label">
+      <p class="day-num-label">Leg 5 · Days 9–10 · Sun 10 – Mon 11 May 2026</p>
+      <h2 class="day-title">London <em>Home</em></h2>
+      <p class="day-sub">Herne Hill · Biryani at Fran's mum's · V&A Museum · home cooking</p>
+    </div>
+  </div>
+  <div class="photo-strip n2">
+    <figure>
+      <!-- Brockwell Park Herne Hill lido -->
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Brockwell_Park_lido.jpg/800px-Brockwell_Park_lido.jpg" alt="Brockwell Park, Herne Hill">
+      <figcaption>Brockwell Park, Herne Hill</figcaption>
+    </figure>
+    <figure>
+      <!-- V&A Museum interior great court -->
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Victoria_and_Albert_Museum_main_entrance.jpg/800px-Victoria_and_Albert_Museum_main_entrance.jpg" alt="V&A Museum">
+      <figcaption>V&A Museum</figcaption>
+    </figure>
+  </div>
+  <div class="day-content">
+    <div class="leg-flag" style="border-color:var(--london);background:#EFF4FB;color:var(--london)">🇬🇧 &nbsp;Leg 5 — London Home</div>
+    <div class="timeline">
+      <div class="te"><div class="te-time">Sun AM</div><div class="te-right"><div class="te-head"><a href="https://maps.google.com/?q=Herne+Hill+Market+London" target="_blank">Herne Hill market walk</a></div><p class="te-body">Relax, walk round the park and the Sunday market. A gentle re-entry to London life.</p><a class="map-link" href="https://maps.google.com/?q=Herne+Hill+Market+London" target="_blank">Open in Maps</a></div></div>
+      <div class="te"><div class="te-time">Lunch</div><div class="te-right"><div class="te-head">Biryani at Fran's mum's!</div><p class="te-body">Long lunch at Fran's mum's house. Proper home cooking — biryani and a long, lazy Sunday afternoon.</p></div></div>
+      <div class="te"><div class="te-time">Mon</div><div class="te-right"><div class="te-head"><a href="https://maps.google.com/?q=Victoria+Albert+Museum+London+SW7" target="_blank">V&A Museum</a></div><p class="te-body">Rauikau & Fran working. Anna & Rohinton explore the Victoria & Albert Museum — the world's greatest museum of art and design. Free entry. Anna cooks dinner at home.</p><a class="map-link" href="https://maps.google.com/?q=Victoria+Albert+Museum+London" target="_blank">Open in Maps</a></div></div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+
+<!-- ════════ LEG 6 ════════ -->
+<section class="day-section" id="leg6">
+  <div class="day-hero">
+    <!-- Blenheim Palace front facade -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Blenheim_Palace_IMG_3689.JPG/1280px-Blenheim_Palace_IMG_3689.JPG" alt="Blenheim Palace, Oxfordshire">
+    <div class="day-hero-ov"></div>
+    <div class="day-hero-label">
+      <p class="day-num-label">Leg 6 · Days 11–13 · Tue 12 – Thu 14 May 2026</p>
+      <h2 class="day-title">The <em>Cotswolds</em></h2>
+      <p class="day-sub">Thyme · Daylesford · Soho Farmhouse · Blenheim Palace · Bicester Village</p>
+    </div>
+  </div>
+  <div class="photo-strip n3">
+    <figure>
+      <!-- Bourton-on-the-Water Cotswolds -->
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Bourton-on-the-water.jpg/800px-Bourton-on-the-water.jpg" alt="Bourton-on-the-Water, Cotswolds">
+      <figcaption>Cotswolds village</figcaption>
+    </figure>
+    <figure>
+      <!-- Blenheim Palace gardens -->
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Blenheim_Palace_-_geograph.org.uk_-_2137978.jpg/800px-Blenheim_Palace_-_geograph.org.uk_-_2137978.jpg" alt="Blenheim Palace grounds">
+      <figcaption>Blenheim Palace</figcaption>
+    </figure>
+    <figure>
+      <!-- Cotswolds countryside rolling hills -->
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Swinbrook_church_and_village_2010.jpg/800px-Swinbrook_church_and_village_2010.jpg" alt="Cotswolds countryside">
+      <figcaption>Cotswolds countryside</figcaption>
+    </figure>
+  </div>
+  <div class="day-content">
+    <div class="leg-flag" style="border-color:var(--cotswolds);background:#EFF6F1;color:var(--cotswolds)">🇬🇧 &nbsp;Leg 6 — The Cotswolds</div>
+
+    <div class="day-subhead">Day 11 · Tue 12 May</div>
+    <div class="timeline">
+      <div class="te"><div class="te-time">Morning</div><div class="te-right"><div class="te-head"><a href="https://maps.google.com/?q=Thyme+Southrop+Cotswolds" target="_blank">Thyme, Southrop</a></div><p class="te-body">Leave early for Thyme — a beautiful country house with gardens, farm shop and orchard. Walk the grounds and explore the village.</p><a class="map-link" href="https://maps.google.com/?q=Thyme+Southrop+Cotswolds" target="_blank">Open in Maps</a></div></div>
+      <div class="te"><div class="te-time">Evening</div><div class="te-right"><div class="te-head">Check in · Siesta · The Bull</div><p class="te-body">Check into accommodation and rest. Evening bite at <a href="https://maps.google.com/?q=The+Bull+Cotswolds" target="_blank">The Bull</a> pub.</p></div></div>
+    </div>
+
+    <div class="day-subhead">Day 12 · Wed 13 May</div>
+    <div class="timeline">
+      <div class="te"><div class="te-time">Morning</div><div class="te-right"><div class="te-head"><a href="https://maps.google.com/?q=Daylesford+Organic+Farm+Shop" target="_blank">Daylesford Farm Shop</a></div><p class="te-body">The ultimate organic farm café. Fresh bread, seasonal produce, excellent coffee. A Cotswolds institution.</p><a class="map-link" href="https://maps.google.com/?q=Daylesford+Organic+Farm+Shop" target="_blank">Open in Maps</a></div></div>
+      <div class="te"><div class="te-time">Afternoon</div><div class="te-right"><div class="te-head"><a href="https://maps.google.com/?q=Soho+Farmhouse+Chipping+Norton" target="_blank">Soho Farmhouse</a></div><p class="te-body">An afternoon at Soho House's Cotswolds outpost. Grounds, pool, and relaxed countryside atmosphere.</p><a class="map-link" href="https://maps.google.com/?q=Soho+Farmhouse+Chipping+Norton" target="_blank">Open in Maps</a></div></div>
+      <div class="te"><div class="te-time">Evening</div><div class="te-right"><div class="te-head">Dinner at Little Berenjak</div><p class="te-body">Persian-inspired small plates — one of the most exciting spots in the area.</p></div></div>
+    </div>
+
+    <div class="day-subhead">Day 13 · Thu 14 May</div>
+    <div class="timeline">
+      <div class="te"><div class="te-time">Morning</div><div class="te-right"><div class="te-head"><a href="https://maps.google.com/?q=Blenheim+Palace+Woodstock" target="_blank">Blenheim Palace</a></div><p class="te-body">UNESCO World Heritage baroque masterpiece and birthplace of Churchill. 800 hectares of Capability Brown parkland.</p><a class="map-link" href="https://maps.google.com/?q=Blenheim+Palace+Woodstock" target="_blank">Open in Maps</a></div></div>
+      <div class="te"><div class="te-time">Afternoon</div><div class="te-right"><div class="te-head"><a href="https://maps.google.com/?q=Bicester+Village+Oxfordshire" target="_blank">Bicester Village</a></div><p class="te-body">Designer outlet village — 160 boutiques with significant discounts. Lunch on site.</p><a class="map-link" href="https://maps.google.com/?q=Bicester+Village+Oxfordshire" target="_blank">Open in Maps</a></div></div>
+      <div class="te"><div class="te-time">17:00</div><div class="te-right"><div class="te-head">Drop off in Hampstead</div><p class="te-body">Drive to 14b Downshire Hill, NW3. Six nights in Hampstead.</p><a class="map-link" href="https://maps.google.com/?q=Downshire+Hill+Hampstead+London" target="_blank">Open in Maps</a></div></div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+
+<!-- ════════ LEG 7 ════════ -->
+<section class="day-section" id="leg7">
+  <div class="day-hero">
+    <!-- Hampstead Heath Parliament Hill view over London -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Parliament_Hill%2C_Hampstead_Heath%2C_London.jpg/1280px-Parliament_Hill%2C_Hampstead_Heath%2C_London.jpg" alt="Hampstead Heath, Parliament Hill">
+    <div class="day-hero-ov"></div>
+    <div class="day-hero-label">
+      <p class="day-num-label">Leg 7 · Days 14–19 · Fri 15 – Wed 21 May 2026</p>
+      <h2 class="day-title"><em>Hampstead</em>, London</h2>
+      <p class="day-sub">Richmond · Kew Gardens · Holly Bush roast · Chinatown · Coal Drops Yard</p>
+    </div>
+  </div>
+  <div class="photo-strip n3">
+    <figure>
+      <!-- Kew Gardens Palm House -->
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Kew_Gardens_Palm_House%2C_London_-_July_2009.jpg/800px-Kew_Gardens_Palm_House%2C_London_-_July_2009.jpg" alt="Kew Gardens Palm House">
+      <figcaption>Kew Gardens</figcaption>
+    </figure>
+    <figure>
+      <!-- Petersham Nurseries / Richmond -->
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Richmond_Park_-_geograph.org.uk_-_1070677.jpg/800px-Richmond_Park_-_geograph.org.uk_-_1070677.jpg" alt="Richmond Park deer">
+      <figcaption>Richmond Park</figcaption>
+    </figure>
+    <figure>
+      <!-- Natural History Museum London -->
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Natural_History_Museum_London_Jan_2006.jpg/800px-Natural_History_Museum_London_Jan_2006.jpg" alt="Natural History Museum London">
+      <figcaption>Natural History Museum</figcaption>
+    </figure>
+  </div>
+  <div class="day-content">
+    <div class="leg-flag" style="border-color:var(--london);background:#EFF4FB;color:var(--london)">🇬🇧 &nbsp;Leg 7 — Hampstead</div>
+    <div class="timeline">
+      <div class="te"><div class="te-time">Fri 15</div><div class="te-right"><div class="te-head">Settle into Hampstead</div><p class="te-body">Rauikau at work. Explore the village — coffee on the High Street, walk the Heath. Anna cooks in the evening.</p><a class="map-link" href="https://maps.google.com/?q=Hampstead+High+Street+London" target="_blank">Hampstead on Maps</a></div></div>
+      <div class="te"><div class="te-time">Sat 16</div><div class="te-right"><div class="te-head"><a href="https://maps.google.com/?q=Petersham+Nurseries+Richmond" target="_blank">Day in Richmond — Petersham Nurseries</a></div><p class="te-body">Magical greenhouse restaurant in Richmond. Seasonal Italian food amid trailing vines. Walk by the Thames and through Richmond Park.</p><a class="map-link" href="https://maps.google.com/?q=Petersham+Nurseries+Richmond" target="_blank">Open in Maps</a></div></div>
+      <div class="te"><div class="te-time">Sun 17</div><div class="te-right"><div class="te-head">Yoga at NHM · <a href="https://maps.google.com/?q=Holly+Bush+Pub+Hampstead" target="_blank">Holly Bush</a> Sunday roast</div><p class="te-body">8am yoga at the <a href="https://maps.google.com/?q=Natural+History+Museum+London" target="_blank">Natural History Museum</a>. Sunday roast at The Holly Bush at 14:00 — one of London's finest pubs, hidden up a cobbled Hampstead lane.</p><a class="map-link" href="https://maps.google.com/?q=Holly+Bush+Pub+Hampstead" target="_blank">Holly Bush on Maps</a></div></div>
+      <div class="te"><div class="te-time">Mon 18</div><div class="te-right"><div class="te-head"><a href="https://maps.google.com/?q=Kew+Gardens+London" target="_blank">Kew Gardens</a></div><p class="te-body">Direct train from Hampstead Heath station. 326 acres of extraordinary gardens and glasshouses — spectacular in late May.</p><a class="map-link" href="https://maps.google.com/?q=Kew+Gardens+London" target="_blank">Open in Maps</a></div></div>
+      <div class="te"><div class="te-time">Tue 19</div><div class="te-right"><div class="te-head">Relax or spa · Chinatown dinner</div><p class="te-body">Quiet day — relax at home or a spa. Evening dinner in <a href="https://maps.google.com/?q=Chinatown+London+Gerrard+Street" target="_blank">Chinatown</a>, Soho.</p><a class="map-link" href="https://maps.google.com/?q=Chinatown+London+Soho" target="_blank">Chinatown on Maps</a></div></div>
+      <div class="te"><div class="te-time">Wed 20</div><div class="te-right"><div class="te-head"><a href="https://maps.google.com/?q=British+Library+London" target="_blank">British Library</a> · Primrose Hill · <a href="https://maps.google.com/?q=Coal+Drops+Yard+Kings+Cross" target="_blank">Coal Drops Yard</a></div><p class="te-body">Morning at the British Library, walk up to Primrose Hill for views over London, then Coal Drops Yard. Dinner options: Tamil Prince, Roti King, or Dishoom.</p><a class="map-link" href="https://maps.google.com/?q=Coal+Drops+Yard+Kings+Cross" target="_blank">Coal Drops Yard on Maps</a></div></div>
+    </div>
+
+    <div class="accom">
+      <div class="accom-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Parliament_Hill%2C_Hampstead_Heath%2C_London.jpg/1280px-Parliament_Hill%2C_Hampstead_Heath%2C_London.jpg" alt="Hampstead Heath">
+      </div>
+      <div class="accom-body">
+        <div class="accom-tag">Nights 12–17 · Hampstead Village</div>
+        <div class="accom-name">14b Downshire Hill</div>
+        <div class="accom-addr">Downshire Hill, Hampstead, London NW3</div>
+        <div class="accom-meta">
+          <div class="am"><span class="am-l">Nights</span><span class="am-v">Fri 15 – Thu 21 May</span></div>
+          <div class="am"><span class="am-l">Area</span><span class="am-v">Hampstead Village, NW3</span></div>
+        </div>
+        <div class="accom-links"><a href="https://maps.google.com/?q=Downshire+Hill+Hampstead+London" target="_blank">View on Map →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+
+<!-- ════════ LEG 8 ════════ -->
+<section class="day-section" id="leg8">
+  <div class="day-hero">
+    <!-- Tower Bridge London -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Tower_Bridge_London_Feb_2006.jpg/1280px-Tower_Bridge_London_Feb_2006.jpg" alt="Tower Bridge, London">
+    <div class="day-hero-ov"></div>
+    <div class="day-hero-label">
+      <p class="day-num-label">Leg 8 · Days 20–23 · Thu 21 – Sun 24 May 2026</p>
+      <h2 class="day-title">London <em>Final Days</em></h2>
+      <p class="day-sub">Mousetrap · Chelsea Flower Show · The Oval · Borough Market · Departure</p>
+    </div>
+  </div>
+  <div class="photo-strip n3">
+    <figure>
+      <!-- Chelsea Physic Garden / RHS Chelsea area -->
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Chelsea_Flower_Show_2007_-_geograph.org.uk_-_437548.jpg/800px-Chelsea_Flower_Show_2007_-_geograph.org.uk_-_437548.jpg" alt="Chelsea Flower Show">
+      <figcaption>Chelsea Flower Show</figcaption>
+    </figure>
+    <figure>
+      <!-- Borough Market London -->
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Borough_Market_in_London.jpg/800px-Borough_Market_in_London.jpg" alt="Borough Market, London">
+      <figcaption>Borough Market</figcaption>
+    </figure>
+    <figure>
+      <!-- Covent Garden London -->
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/CoventGarden2003.jpg/800px-CoventGarden2003.jpg" alt="Covent Garden, London">
+      <figcaption>Covent Garden</figcaption>
+    </figure>
+  </div>
+  <div class="day-content">
+    <div class="leg-flag" style="border-color:var(--london);background:#EFF4FB;color:var(--london)">🇬🇧 &nbsp;Leg 8 — Final Days</div>
+    <div class="timeline">
+      <div class="te"><div class="te-time">Thu 21</div><div class="te-right"><div class="te-head">Mousetrap · <a href="https://maps.google.com/?q=Covent+Garden+London" target="_blank">Covent Garden</a> · Seven Dials</div><p class="te-body">Leave around 07:30. Catch The Mousetrap — Agatha Christie's legendary West End whodunnit running since 1952. Walk through Covent Garden and Seven Dials. Dinner at <a href="https://maps.google.com/?q=Ambassadors+Clubhouse+London" target="_blank">Ambassadors Clubhouse</a>.</p><a class="map-link" href="https://maps.google.com/?q=Covent+Garden+London" target="_blank">Covent Garden on Maps</a></div></div>
+      <div class="te"><div class="te-time">Fri 22</div><div class="te-right"><div class="te-head"><a href="https://maps.google.com/?q=RHS+Chelsea+Flower+Show+London" target="_blank">Chelsea Flower Show</a> · Cricket at <a href="https://maps.google.com/?q=The+Oval+Cricket+Kennington" target="_blank">The Oval</a></div><p class="te-body">The world's most famous horticultural show — extraordinary show gardens and rare plants. Evening: cricket at The Oval in Kennington.</p><a class="map-link" href="https://maps.google.com/?q=RHS+Chelsea+Flower+Show+London" target="_blank">Chelsea Flower Show on Maps</a></div></div>
+      <div class="te"><div class="te-time">Sat 23</div><div class="te-right"><div class="te-head"><a href="https://maps.google.com/?q=Borough+Market+London" target="_blank">Borough Market</a> · <a href="https://maps.google.com/?q=Tower+Bridge+London" target="_blank">Tower Bridge</a> · Tooting</div><p class="te-body">London's greatest food market — graze your way through the stalls. Walk along the river to Tower Bridge. Evening dinner in Tooting.</p><a class="map-link" href="https://maps.google.com/?q=Borough+Market+London" target="_blank">Borough Market on Maps</a></div></div>
+      <div class="te"><div class="te-time">Sun 24</div><div class="te-right"><div class="te-head">Herne Hill Market · Depart Heathrow T5</div><p class="te-body">Last morning walk to Herne Hill market. Relax, pack, head to Heathrow T5. BA0015 & BA7480 departs 22:00 for Auckland via Sydney. Safe travels — what an extraordinary 23 days. 🧡</p></div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+  <span class="footer-script">Bon voyage</span>
+  <p>The Roaming Rostamis Tour 2026 &nbsp;·&nbsp; <span>2 – 24 May 2026</span> &nbsp;·&nbsp; 23 days across Spain &amp; the UK &nbsp;·&nbsp; Fran · Rauikau · Anna · Rohinton</p>
+</footer>
+
+</body>
+</html>
